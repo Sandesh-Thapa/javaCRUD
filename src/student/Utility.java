@@ -16,9 +16,11 @@ public class Utility {
 	public void createRecord() {
 		HashSet<Integer> checkRoll = new HashSet<Integer>();
 		System.out.println();
+		System.out.println("####### Add Student #######");
+		System.out.println();
 		
 		// Roll Number
-		System.out.println("Enter Roll No: ");
+		System.out.print("Enter Roll No: ");
 		int roll = scan.nextInt();
 		
 		if (this.arr.size() != 0) {
@@ -27,7 +29,7 @@ public class Utility {
 			}
 			while(checkRoll.contains(roll)) {
 				System.out.println("Roll number " + roll + " already exists !!!");
-				System.out.println("Enter Roll No: ");
+				System.out.print("Enter Roll No: ");
 				roll = scan.nextInt();
 			}
 		}
@@ -84,19 +86,22 @@ public class Utility {
 			break;
 		}
 		
-		System.out.println("Enter Contact No. (Mobile Only): ");
+		System.out.print("Enter Contact No. (Mobile Only): ");
 		long contactNo = scan.nextLong();
 		int contactLen = String.valueOf(contactNo).length();
 		
 		while (contactLen != 10) {
 			System.out.println("Invalid Mobile Number !!!");
-			System.out.println("Enter Contact No. (Mobile Only): ");
+			System.out.print("Enter Contact No. (Mobile Only): ");
 			contactNo = scan.nextLong();
 			contactLen = String.valueOf(contactNo).length();
 		}
 		
 		Crud c = new Crud(roll, fName, lName, finalGender, contactNo, this.getList());
 		this.arr.add(c);
+		System.out.println("Record Creted Successfully ...");
+		System.out.println("------------------------------------------");
+		System.out.println();
 
 	}
 	
@@ -106,14 +111,20 @@ public class Utility {
 		System.out.println("=================================");
 		System.out.println("========= Student Lists =========");
 		System.out.println("=================================");
+		System.out.println();
 		for (Crud obj : this.arr) {
-            System.out.println(obj.getId() + " " +obj.getName() + " " + obj.getContact() + " " + obj.getGender() + " " + obj.getRoll());
+            System.out.println(obj.getName() + " " + obj.getContact() + " " + obj.getGender() + " " + obj.getRoll());
             System.out.println("-----------------------------");
         }
+		System.out.println("------------------------------------------");
+		System.out.println();
 	}
 	
 	public void searchRecord() {
 		Boolean found = false;
+		System.out.println();
+		System.out.println("####### Search Student #######");
+		System.out.println();
 		System.out.print("Enter Roll number of student: ");
 		int roll = scan.nextInt();
 		
@@ -125,17 +136,24 @@ public class Utility {
 				System.out.println("Name: " + c.getName());
 				System.out.println("Gender: " + c.getGender());
 				System.out.println("Contact: " + c.getContact());
+				System.out.println("------------------------------------------");
+				System.out.println();
 				break;
 			}
 		}
 		if(!found) {
 			System.out.println("Record Not Found !!");
+			System.out.println("------------------------------------------");
+			System.out.println();
 		}
 		
 	}
 	
 	public void deleteRecord() {
 		Boolean found = false;
+		System.out.println();
+		System.out.println("####### Delete Student #######");
+		System.out.println();
 		System.out.print("Enter Roll number of student to delete: ");
 		int roll = scan.nextInt();
 		for (Crud c : this.arr) {
@@ -143,11 +161,15 @@ public class Utility {
 				found = true;
 				this.arr.remove(c);
 				System.out.println("Record Deleted Successfully !!!");
+				System.out.println("------------------------------------------");
+				System.out.println();
 				break;
 			}
 		}
 		if(!found) {
 			System.out.println("Record Not Found !!");
+			System.out.println("------------------------------------------");
+			System.out.println();
 		}
 		
 	}
@@ -155,28 +177,39 @@ public class Utility {
 	public void updateRecord() {
 		HashSet<Integer> checkRoll = new HashSet<Integer>();
 		Boolean found = false;
-		Crud record;
+		Crud record = null;
+		System.out.println();
+		System.out.println("####### Update Record #######");
+		System.out.println();
 		System.out.print("Enter Roll number of student: ");
 		int roll = scan.nextInt();
 		
 		for (Crud c : this.arr) {
 			checkRoll.add(c.getRoll());
 			if (c.getRoll() == roll) {
-				found = true;
 				record = c;
+				found = true;
 			}
 		}
 		
 		if(!found) {
 			System.out.println("Record Not Found !!");
+			System.out.println("------------------------------------------");
+			System.out.println();
 		}else {
 			System.out.println("Record Found ...");
-			System.out.println("Enter new Roll No: ");
+			System.out.println("Roll no: " + record.getRoll());
+			System.out.println("Name: " + record.getName());
+			System.out.println("Gender: " + record.getGender());
+			System.out.println("Contact: " + record.getContact());
+			System.out.println("------------------------------------------");
+			System.out.println();
+			System.out.print("Enter new Roll No: ");
 			int newRoll = scan.nextInt();
 			
 			while(checkRoll.contains(newRoll)) {
 				System.out.println("Roll number " + newRoll + " already exists !!!");
-				System.out.println("Enter Roll No: ");
+				System.out.print("Enter Roll No: ");
 				newRoll = scan.nextInt();
 			}
 			
@@ -231,7 +264,7 @@ public class Utility {
 				break;
 			}
 			
-			System.out.println("Enter Contact No. (Mobile Only): ");
+			System.out.print("Enter Contact No. (Mobile Only): ");
 			long contactNo = scan.nextLong();
 			int contactLen = String.valueOf(contactNo).length();
 			
@@ -248,6 +281,8 @@ public class Utility {
 				if (this.arr.get(i).getRoll() == roll) {
 					this.arr.set(i, newRecord);
 					System.out.println("Record Updated Successfully ...");
+					System.out.println("-------------------------------------");
+					System.out.println();
 					break;
 				}
 			}
