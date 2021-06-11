@@ -37,6 +37,15 @@ public class Menu {
 				case 2:
 					u.displayList();
 					break;
+				case 3:
+					u.searchRecord();
+					break;
+				case 4:
+					u.updateRecord();
+					break;
+				case 5:
+					u.deleteRecord();
+					break;
 				case 6:
 					System.out.println("Have a great day !!!");
 					System.exit(0);
@@ -44,7 +53,6 @@ public class Menu {
 					defaultMsg();
 					break;
 				}
-				scan.close();
 			}catch (InputMismatchException e) {
 				defaultMsg();
 			}
