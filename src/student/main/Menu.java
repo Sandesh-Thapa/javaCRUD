@@ -3,7 +3,7 @@ package student.main;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import student.Utility;
+import student.Crud;
 
 public class Menu {
 	static void defaultMsg() {
@@ -12,7 +12,7 @@ public class Menu {
 	}
 	public void menu()
 	{
-		Utility u = new Utility();
+		Crud u = new Crud();
 		while(true) {
 			try {
 				Scanner scan = new Scanner(System.in);
