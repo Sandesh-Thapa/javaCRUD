@@ -10,10 +10,10 @@ public class Menu {
 		System.out.println("Wrong choice !!!  Enter only 1/2/3/4/5/6/7/8");
 		System.out.println("-------------------------------------------------");
 	}
-	public void menu()
-	{
+
+	public void menu() {
 		Crud u = new Crud();
-		while(true) {
+		while (true) {
 			try {
 				Scanner scan = new Scanner(System.in);
 				System.out.println("=================================");
@@ -29,31 +29,31 @@ public class Menu {
 				System.out.println("Press the respective menu number for respective operation");
 				System.out.print("Enter your choice: ");
 				int choice = scan.nextInt();
-				
-				switch(choice) {
-				case 1:
-					u.createRecord();
-					break;
-				case 2:
-					u.displayList();
-					break;
-				case 3:
-					u.searchRecord();
-					break;
-				case 4:
-					u.updateRecord();
-					break;
-				case 5:
-					u.deleteRecord();
-					break;
-				case 6:
-					System.out.println("Have a great day !!!");
-					System.exit(0);
-				default: 
-					defaultMsg();
-					break;
+
+				switch (choice) {
+					case 1:
+						u.createRecord();
+						break;
+					case 2:
+						u.displayList();
+						break;
+					case 3:
+						u.searchRecord();
+						break;
+					case 4:
+						u.updateRecord();
+						break;
+					case 5:
+						u.deleteRecord();
+						break;
+					case 6:
+						System.out.println("Have a great day !!!");
+						System.exit(0);
+					default:
+						defaultMsg();
+						break;
 				}
-			}catch (InputMismatchException e) {
+			} catch (InputMismatchException e) {
 				defaultMsg();
 			}
 		}
